@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "Content Fiddler",
+  "version": "1.0",
+  "background": {
+    "persistent": false,
+    "scripts": ["jquery.min.js","backgroundScript.js"]
+  },
+  "content_scripts": [{
+    "matches": [
+            "http://*/*",
+            "https://*/*"
+            ],
+    "js": ["jquery.min.js","contentScript.js"],
+    "run_at": "document_end"
+  }],
+  "browser_action": {
+    "default_title": "Content Fiddler"
+  },
+
+  "permissions": ["http://localhost/*","activeTab"]
+}
