@@ -6,6 +6,9 @@
     "persistent": false,
     "scripts": ["jquery.min.js","backgroundScript.js"]
   },
+  "icons":{
+    "19" : "icon_de.png"
+  },
   "content_scripts": [{
     "matches": [
             "http://*/*",

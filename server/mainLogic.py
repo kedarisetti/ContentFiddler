@@ -17,10 +17,13 @@ class article:
         self.sentiment = 0.5
         self.adj={}
         self.tagWords(self.para)
+
     def tagWords(self, para):
         wnl = WordNetLemmatizer()
         #lines_list = tokenize.sent_tokenize(para)
         lines_list = para.split('.')
+        lines_list = [line.strip() for line in lines_list]
+
         for line in lines_list:
             text = tokenize.word_tokenize(line)
             taggedWords = nltk.pos_tag(text)
@@ -48,7 +51,7 @@ class article:
 
             if len(adjWords)>0:
                 self.changeWords[line]=adjWords
-            print 'line :' + line
+            #print 'line :' + line
 
 
     def sentimentAnalysis(self, text):

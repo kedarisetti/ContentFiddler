@@ -1,6 +1,26 @@
+var enabled = false;
+
+chrome.browserAction.onClicked.addListener(
+    function(){
+        enabled = !enabled;
+        if (enabled)
+        {
+            console.log("Extension Now Enabled");
+            chrome.browserAction.setIcon({path:"icon_en.png"});
+        }
+        else
+        {
+            console.log("Extension is now Disabled");
+            chrome.browserAction.setIcon({path:"icon_de.png"});
+            //chrome.browserAction.setPopup({popup: ""});
+
+        }
+
+
+    });
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if (request.type == "parsetext"){
+    if (request.type == "parsetext" && enabled){
       getUrls(request, sender, sendResponse)
       return true;
     }

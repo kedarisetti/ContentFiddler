@@ -5,7 +5,8 @@ import json
 
 @post('/parsetext')
 def do_Parsetext():
-        para =  request.forms.get('paragraphs')
+        para =  request.forms.paragraphs
+        #', encoding="utf-8")
         arti = mainLogic.article(para)
         data = arti.main(para,0.5)
         print 'data :',data
