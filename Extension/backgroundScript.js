@@ -30,7 +30,7 @@ function getUrls(request, sender, sendResponse){
   $.ajax({
   type: "POST",
   cache: false,
-  url: "http://localhost:8015/parsetext",
+  url: "https://quiet-fjord-47215.herokuapp.com:8015/parsetext",
   // The key needs to match your method's input parameter (case-sensitive).
   data: {"paragraphs": request.data},
   dataType: "json",

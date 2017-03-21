@@ -1,7 +1,16 @@
+import os
+from os import environ as env
+from sys import argv
+
+import bottle
 from bottle import sys, route, run, template, get, post, request
 import nltk
 import mainLogic
 import json
+
+@get('/')
+def hello():
+        return "hello"
 
 @post('/parsetext')
 def do_Parsetext():
@@ -17,8 +26,5 @@ def do_Parsetext():
         json_data=ans
         return json_data
 
-try:
-    run(host='localhost', port=8015, debug=True)
-except KeyboardInterrupt:
-    # never reached
-    print('exiting...')
+port = int(os.environ.get("PORT", 5000))
+bottle.run(host='0.0.0.0', port=port)
